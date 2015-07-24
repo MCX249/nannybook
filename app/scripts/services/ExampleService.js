@@ -20,7 +20,7 @@ angular.module('NannyBook')
 
     var fetchSomethingFromServer = function() {
       return $http({
-          url: 'http://hipsterjesus.com/api',
+          url: 'http://beta.json-generator.com/api/json/get/41yUhioY',
           params: {
               paras: 2
           },

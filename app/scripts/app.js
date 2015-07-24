@@ -22,7 +22,9 @@ angular.module('NannyBook', ['ionic', 'ngCordova', 'ngResource'])
 
   })
 
-  .config(function($httpProvider, $stateProvider, $urlRouterProvider) {
+  .config(function($httpProvider, $stateProvider, $urlRouterProvider,$sceDelegateProvider) {
+
+    $sceDelegateProvider.resourceUrlWhitelist(['**']);
     // register $http interceptors, if any. e.g.
     // $httpProvider.interceptors.push('interceptor-name');
 
@@ -34,6 +36,16 @@ angular.module('NannyBook', ['ionic', 'ngCordova', 'ngResource'])
         templateUrl: 'templates/main.html',
         controller: 'MainController'
       })
+      .state('app.login', {
+        url: '/login',
+        cache: true,
+        views: {
+          'viewContent': {
+            templateUrl: 'templates/views/login.html',
+            controller: 'LoginController'
+          }
+        }
+      })      
       .state('app.home', {
         url: '/home',
         cache: true,

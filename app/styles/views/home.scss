@@ -5,3 +5,23 @@
 .content {
   padding: 1rem;
 }
+
+.modal {
+	//background:url("../images/bg.jpg") center center;
+	//background-size: cover;
+	background-color: #2baed4;
+
+	h3, h5 {
+		color:white;
+		text-align: center;
+	}
+
+}
+
+video {
+	max-width: 100%;
+}
+
+.list .card p {
+	font-size: 12px;
+}
