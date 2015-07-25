@@ -7,7 +7,7 @@
  * # HomeController
  */
 angular.module('NannyBook')
-  .controller('HomeController', function($scope, ExampleService, $ionicModal,$timeout) {
+  .controller('HomeController', function($scope, ExampleService, $ionicModal,$timeout,LocalStorage) {
 
   $ionicModal.fromTemplateUrl('modal.html', function($ionicModal) {
 
@@ -20,7 +20,7 @@ angular.module('NannyBook')
     animation: 'slide-in-up'
   });
 
-  //$timeout(function(){$scope.modal.show()},100);
+  if (LocalStorage.get("logged") != 1) $timeout(function(){$scope.modal.show()},100);
 
   //$scope.modal.show();    
 
@@ -41,5 +41,18 @@ angular.module('NannyBook')
     };
 
     $scope.fetchRandomText();
+
+    $scope.login = function(){
+
+      console.log($scope.f);
+
+      $scope.simulateLoading = true;
+      LocalStorage.set("logged",1);
+      $timeout(function(){
+        $scope.simulateLoading = false;
+        $scope.modal.hide()
+      },700);
+
+    }
 
   });
